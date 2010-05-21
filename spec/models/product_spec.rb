@@ -59,5 +59,23 @@ describe Product do
   	product_with_nostardward_imageurl.should_not be_valid
   end
   
+  describe "find_products_for_sale method" do
   	
+  	it "should be true if has product " do
+  		Product.create!(@valid_attributes)
+  		Product.find_products_for_sale.should be_true
+  	end
+  	
+  	it "should be ordered by title if has more products" do
+  		Product.create!(@valid_attributes)
+  		@p=Product.create(@valid_attributes.merge(:title=>"test title"))  		
+  		Product.find_products_for_sale.first.id.should be_equal(2)
+  	end
+  		
+  	
+  end
+  	
+      	
 end
+
+

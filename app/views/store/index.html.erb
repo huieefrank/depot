@@ -1,0 +1,12 @@
+<h1>产品目录</h1>
+<% for product in @products %>
+	<div class="enry">
+		<%= image_tag(product.image_url) %>
+		<h3><%=h product.title %></h3>
+		<%= product.description %>
+		<div class ="price-line">
+			<span><%= number_to_currency(product.price) %></span>
+			<%= button_to "加入购物车" %>
+		</div>
+	<div>
+<% end %>
